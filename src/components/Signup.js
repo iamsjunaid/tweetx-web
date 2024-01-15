@@ -107,7 +107,7 @@ const Signup = () => {
           {error ? <p>{error}</p> : null}
 
         </div>
-        <div className="w-1/2 h-screen">
+        <div className="w-1/2 h-screen flex flex-col justify-center items-start ">
           <img src={signupBanner} className="object-fit contain object-center w-3/4" alt="sign_up_banner" />
         </div>
       </div>
