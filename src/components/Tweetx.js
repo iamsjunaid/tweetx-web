@@ -12,6 +12,7 @@ const Tweetx = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid } = user;
+        console.log('user is logged in', uid);
       } else {
         // User is signed out
         // ...
@@ -29,7 +30,7 @@ const Tweetx = () => {
   };
 
   return (
-    <div className="text-center bg-pink-400">
+    <div>
       <Navbar />
       {error ? <p>{error}</p> : null}
       <h1> Tweetx </h1>
