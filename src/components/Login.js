@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import loginBanner from '../assets/img/login_banner.svg';
 
 const Login = () => {
-  const { personName } = useParams();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate(`/home/${personName}`);
+        navigate('/home');
       })
       .catch((error) => {
         setError(error.message);
@@ -45,7 +44,7 @@ const Login = () => {
             </button>
           </NavLink>
           <h1 className="font-bold text-3xl text-gray-600">Login</h1>
-          {personName ? <p>{`Hi, ${personName}! Please sign in using your email and password.`}</p> : null}
+          <p>Please sign in using your email and password.</p>
           <form className="flex flex-col gap-4 w-3/4">
             <div>
               <input

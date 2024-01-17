@@ -10,10 +10,10 @@ function App() {
       <div className="App">
         <section>
           <Routes>
-            <Route path="/home/:personName" element={<Tweetx />} />
+            <Route path="/home" element={<Tweetx />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/" element={<Login />} />
-            <Route path="/login/:personName" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </section>
       </div>

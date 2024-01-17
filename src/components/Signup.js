@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { auth, db } from '../firebase';
 import signupBanner from '../assets/img/signup_banner.svg';
 
 const Signup = () => {
@@ -22,7 +23,11 @@ const Signup = () => {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate(`/login/${personName}`);
+      await addDoc(collection(db, 'users'), {
+        email: email, // eslint-disable-line object-shorthand
+        name: personName,
+      });
+      navigate('/login');
       return true;
     } catch (error) {
       setError(error.message);
