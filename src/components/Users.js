@@ -33,7 +33,7 @@ const Users = () => {
         const followersQuery = query(collection(db, 'followers'), where('follower', '==', loggedInUser.email), where('following', '==', userEmail));
         const followersSnapshot = await getDocs(followersQuery);
         const followerDoc = followersSnapshot.docs[0];
-        
+
         if (followerDoc) {
           await deleteDoc(doc(db, 'followers', followerDoc.id));
         }
