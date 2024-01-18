@@ -10,7 +10,7 @@ const Tweetx = () => {
   const [error, setError] = useState('');
   const [confirmedUser, isConfirmedUser] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [posts, setPosts] = useState([]); // Change to array
+  const [posts, setPosts] = useState([]);
 
   const navigate = useNavigate();
 
@@ -55,8 +55,8 @@ const Tweetx = () => {
             <button type="button" onClick={handleWritePost} className="px-8 py-2 bg-pink-400 text-white font-bold rounded-md">Write</button>
           </div>
           <ul className="w-full flex flex-col gap-4">
-            {posts.map((post) => (
-              <li key={post} className="w-[60%] h-48 mx-auto shadow-lg rounded-md py-8 pl-8 flex justify-between">
+            {posts.map((post, i) => (
+              <li key={post.id || i} className="w-[60%] h-48 mx-auto shadow-lg rounded-md py-8 pl-8 flex justify-between">
                 <div className="w-12 h-12 flex justify-center items-center rounded-full full border-2 font-bold text-xl" />
                 <div className="w-3/4 h-32 flex flex-col justify-center gap-4 pl-12">
                   <h3 className="font-semibold text-2xl">{post.title}</h3>

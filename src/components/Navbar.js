@@ -15,7 +15,6 @@ const Navbar = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoggedIn(true);
-        console.log(user.email);
       } else {
         console.log('user is logged out');
       }

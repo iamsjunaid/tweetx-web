@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Tweetx from './components/Tweetx';
 import CreatePost from './components/CreatePost';
 import Profile from './components/Profile';
+import Users from './components/Users';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/create-post" element={<CreatePost />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/users" element={<Users />} />
           </Routes>
         </section>
       </div>
