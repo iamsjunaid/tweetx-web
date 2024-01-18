@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { addDoc, collection, getDocs, query, where, deleteDoc, doc } from 'firebase/firestore';
+import {
+  addDoc, collection, getDocs, query, where, deleteDoc, doc,
+} from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import Navbar from './Navbar';
 import { auth, db } from '../firebase';
@@ -72,6 +74,7 @@ const Users = () => {
     <>
       <Navbar />
       <div className="shadow-lg rounded-md w-3/5 h-3/4 flex flex-col mx-auto my-8 p-8">
+        {error && <p className="absolute top-50 left-1/2 text-red-500 text-center">{error}</p>}
         {users.map((user, i) => (
           user.email !== loggedInUser.email ? (
             <div key={user.uid || i} className="flex justify-between items-center w-full mx-auto my-4">
