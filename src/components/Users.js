@@ -81,7 +81,7 @@ const Users = () => {
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 flex justify-center items-center rounded-full full border-2 font-bold text-xl" />
                 <div className="flex flex-col">
-                  <h2>{user.name}</h2>
+                  <h2 className="font-semibold text-xl">{user.name.toUpperCase()}</h2>
                   <p>{user.email}</p>
                 </div>
               </div>
