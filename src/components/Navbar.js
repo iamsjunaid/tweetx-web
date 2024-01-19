@@ -15,8 +15,6 @@ const Navbar = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoggedIn(true);
-      } else {
-        console.log('user is logged out');
       }
     });
   }, []);
@@ -28,14 +26,6 @@ const Navbar = () => {
       setError(error.message);
     });
   };
-
-  // const handleActiveLink = (link) => {
-  //   console.log(link, activeLink);
-  // if (link === activeLink) {
-  //   return 'text-pink-400';
-  // }
-  // return 'text-gray-500';
-  // };
 
   const handleLinkClick = (path) => {
     switch (path) {

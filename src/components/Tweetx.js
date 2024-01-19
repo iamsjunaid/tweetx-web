@@ -36,8 +36,6 @@ const Tweetx = () => {
         setLoggedIn(true);
         confirmUser(user.email);
         getAllPosts();
-      } else {
-        console.log('user is logged out');
       }
     });
   }, []);

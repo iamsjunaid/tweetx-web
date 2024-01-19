@@ -11,6 +11,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
@@ -18,8 +19,6 @@ const CreatePost = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserInfo(user);
-      } else {
-        console.log('user is logged out');
       }
     });
   }, []);
@@ -37,18 +36,15 @@ const CreatePost = () => {
     }
 
     try {
-      const res = await addDoc(collection(db, 'posts'), {
+      await addDoc(collection(db, 'posts'), {
         title,
         content,
         userRef: userInfo.email,
       });
-      console.log(res);
       navigate(-1);
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
-
-    console.log('Post created successfully');
   };
 
   const navigateBack = () => {
@@ -86,6 +82,8 @@ const CreatePost = () => {
 
           <div className="message">{message ? <p>{message}</p> : null}</div>
         </form>
+        {error ? <p className="text-red-500">Unable to create a new post!</p> : null}
+
       </div>
       <div className="w-1/2 flex flex-col h-full justify-center items-center">
         <img src={typing} alt="typerwriter" className="w-4/5 h-4/5" />

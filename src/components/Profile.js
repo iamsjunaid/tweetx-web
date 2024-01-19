@@ -14,6 +14,7 @@ const Profile = () => {
   const [posts, setPosts] = useState([]);
   const [followers, setFollowers] = useState([]);
   const [followings, setFollowings] = useState([]);
+  const [error, setError] = useState('');
 
   const getPosts = async (user) => {
     try {
@@ -26,7 +27,7 @@ const Profile = () => {
       // Set the filtered posts to the state
       setPosts(filteredPosts);
     } catch (error) {
-      console.error('Error fetching posts:', error.message);
+      setError('Error fetching posts:', error.message);
     }
   };
 
@@ -43,7 +44,7 @@ const Profile = () => {
       // Set the filtered followers to the state
       setFollowers(filteredFollowers);
     } catch (error) {
-      console.error('Error fetching followers:', error.message);
+      setError('Error fetching followers:', error.message);
     }
   };
 
@@ -60,7 +61,7 @@ const Profile = () => {
       // Set the filtered followers to the state
       setFollowings(filteredFollowers);
     } catch (error) {
-      console.error('Error fetching followers:', error.message);
+      setError('Error fetching followers:', error.message);
     }
   };
 
@@ -157,6 +158,7 @@ const Profile = () => {
         ) : (
           <p>Loading...</p>
         )}
+        {error ? <p className="text-red-500">{error}</p> : null}
       </div>
     </>
   );

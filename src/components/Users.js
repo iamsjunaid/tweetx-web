@@ -60,8 +60,7 @@ const Users = () => {
         }));
       }
     } catch (error) {
-      setError('Unable to follow/unfollow at the moment');
-      console.error('Error:', error.message);
+      setError('Error:', error.message);
     }
   };
 
