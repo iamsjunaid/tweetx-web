@@ -97,7 +97,7 @@ TweetX is a user-friendly social media platform that simplifies the way you conn
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](na)
+- [Live Demo Link](https://tweetx-kez3.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

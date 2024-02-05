@@ -132,7 +132,7 @@ const Profile = () => {
               <div className={`${activeTab === 2 ? 'flex flex-col gap-4 w-3/4' : 'hidden'}`}>
                 {followers.length !== 0 ? (followers.map((follower, index) => (
                   <div key={follower.id || index} className="w-full mx-auto my-4">
-                    <div className="flex justify-center text-xl items-center gap-4">
+                    <div className="flex justify-between text-xl items-center gap-4">
                       <div className="w-12 h-12 flex justify-center items-center rounded-full full border-2 font-bold text-xl" />
                       <div className="flex flex-col">
                         <h2>{follower.follower}</h2>
@@ -144,7 +144,7 @@ const Profile = () => {
               <div className={`${activeTab === 3 ? 'flex flex-col gap-4 w-3/4' : 'hidden'}`}>
                 {followings.length !== 0 ? (followings.map((following, index) => (
                   <div key={following.id || index} className="w-full mx-auto my-4">
-                    <div className="flex justify-center text-xl items-center gap-4">
+                    <div className="flex justify-between text-xl items-center gap-4">
                       <div className="w-12 h-12 flex justify-center items-center rounded-full full border-2 font-bold text-xl" />
                       <div className="flex flex-col">
                         <h2>{following.following}</h2>
